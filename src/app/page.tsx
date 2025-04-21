@@ -11,11 +11,11 @@ export default function Home() {
           <span className="text-2xl font-bold tracking-widest text-white">K.ai</span>
         </div>
         <nav className="hidden md:flex gap-10 text-gray-300 font-mono text-sm tracking-widest">
-          <a href="#grok" className="hover:text-white transition">GROK</a>
+          <a href="#grok" className="hover:text-white transition">K</a>
           <a href="#api" className="hover:text-white transition">API</a>
           <a href="#company" className="hover:text-white transition">COMPANY</a>
-          <a href="#colossus" className="hover:text-white transition">COLOSSUS</a>
-          <a href="#careers" className="hover:text-white transition">CAREERS</a>
+          {/* <a href="#colossus" className="hover:text-white transition">COLOSSUS</a> */}
+          {/* <a href="#careers" className="hover:text-white transition">CAREERS</a> */}
           <a href="#news" className="hover:text-white transition">NEWS</a>
         </nav>
         <button className="border border-gray-600 rounded-full px-6 py-2 text-white font-semibold bg-black/60 hover:bg-white/10 transition">TRY K.AI</button>
@@ -26,7 +26,9 @@ export default function Home() {
 
       {/* Large Centered Text */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none select-none">
-        <h1 className="text-[16vw] font-black text-white/10 tracking-tight leading-none">K.ai</h1>
+       
+        <h1 className="text-[15vw] font-black text-white/10 tracking-tight leading-none">K.ai </h1>
+         <p className="text-[4vh] font-black text-white/10 tracking-tight leading-none">Born from Zero. Built for Infinity.</p>
       </div>
 
       {/* Search Bar */}
@@ -41,13 +43,16 @@ export default function Home() {
             <svg width="24" height="24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
-        <p className="mt-8 text-center text-gray-300 max-w-xl text-base">
-          We are thrilled to unveil <span className="font-bold text-white">K.ai 3</span>, our most advanced model yet, blending superior reasoning with extensive pretraining knowledge.
-        </p>
-        <div className="flex gap-4 mt-8">
+       <p className="mt-8 text-center text-gray-300 max-w-xl text-base">
+ 
+  
+ 
+</p>
+
+        {/* <div className="flex gap-4 mt-8">
           <button className="border border-gray-600 rounded-full px-6 py-2 text-white font-semibold bg-black/60 hover:bg-white/10 transition">BUILD WITH K.AI</button>
           <button className="border border-gray-600 rounded-full px-6 py-2 text-white font-semibold bg-black/60 hover:bg-white/10 transition">LEARN MORE</button>
-        </div>
+        </div> */}
       </div>
 
       {/* Subtle Stars/Particles */}
@@ -60,9 +65,9 @@ export default function Home() {
       </div>
 
       {/* Down Arrow */}
-      <div className="absolute left-1/2 bottom-8 -translate-x-1/2 z-20">
+      {/* <div className="absolute left-1/2 bottom-8 -translate-x-1/2 z-20">
         <svg width="32" height="32" fill="none" stroke="white" strokeWidth="2"><path d="M16 8v16M8 20l8 8 8-8"/></svg>
-      </div>
+      </div> */}
     </main>
   );
 }

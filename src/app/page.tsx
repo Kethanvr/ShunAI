@@ -7,8 +7,8 @@ export default function Home() {
       {/* Header */}
       <header className="w-full flex items-center justify-between px-12 py-8 z-10 relative">
         <div className="flex items-center gap-3">
-          <Image src="./public/ChatGPT Image Apr 22, 2025, 02_51_38 AM.png`" alt="K.ai Logo" width={40} height={40} />
-          <span className="text-2xl font-bold tracking-widest text-white">K.ai</span>
+          <Image src="/logo.png" alt="K.ai Logo" width={40} height={40} />
+          {/* <span className="text-2xl font-bold tracking-widest text-white">K.ai</span> */}
         </div>
         <nav className="hidden md:flex gap-10 text-gray-300 font-mono text-sm tracking-widest">
           <a href="#grok" className="hover:text-white transition">K</a>

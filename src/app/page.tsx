@@ -1,103 +1,68 @@
+import { Spotlight } from "@/components/ui/Spotlight";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="relative min-h-screen flex flex-col items-center justify-between bg-black overflow-hidden">
+      {/* Header */}
+      <header className="w-full flex items-center justify-between px-12 py-8 z-10 relative">
+        <div className="flex items-center gap-3">
+          <Image src="/file.svg" alt="K.ai Logo" width={40} height={40} />
+          <span className="text-2xl font-bold tracking-widest text-white">K.ai</span>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <nav className="hidden md:flex gap-10 text-gray-300 font-mono text-sm tracking-widest">
+          <a href="#grok" className="hover:text-white transition">GROK</a>
+          <a href="#api" className="hover:text-white transition">API</a>
+          <a href="#company" className="hover:text-white transition">COMPANY</a>
+          <a href="#colossus" className="hover:text-white transition">COLOSSUS</a>
+          <a href="#careers" className="hover:text-white transition">CAREERS</a>
+          <a href="#news" className="hover:text-white transition">NEWS</a>
+        </nav>
+        <button className="border border-gray-600 rounded-full px-6 py-2 text-white font-semibold bg-black/60 hover:bg-white/10 transition">TRY K.AI</button>
+      </header>
+
+      {/* Spotlight Effect */}
+      <Spotlight className="top-0 right-0 left-0 mx-auto opacity-100 animate-spotlight" fill="#FFD580" />
+
+      {/* Large Centered Text */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none select-none">
+        <h1 className="text-[16vw] font-black text-white/10 tracking-tight leading-none">K.ai</h1>
+      </div>
+
+      {/* Search Bar */}
+      <div className="relative z-20 flex flex-col items-center mt-[30vh]">
+        <div className="flex items-center w-[420px] max-w-full bg-black/80 border border-gray-700 rounded-full px-6 py-4 shadow-lg">
+          <input
+            className="flex-1 bg-transparent outline-none text-white text-lg placeholder-gray-400"
+            placeholder="Ask K.ai anything..."
+            type="text"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <button className="ml-4 bg-white/10 hover:bg-white/20 rounded-full p-2 transition">
+            <svg width="24" height="24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <p className="mt-8 text-center text-gray-300 max-w-xl text-base">
+          We are thrilled to unveil <span className="font-bold text-white">K.ai 3</span>, our most advanced model yet, blending superior reasoning with extensive pretraining knowledge.
+        </p>
+        <div className="flex gap-4 mt-8">
+          <button className="border border-gray-600 rounded-full px-6 py-2 text-white font-semibold bg-black/60 hover:bg-white/10 transition">BUILD WITH K.AI</button>
+          <button className="border border-gray-600 rounded-full px-6 py-2 text-white font-semibold bg-black/60 hover:bg-white/10 transition">LEARN MORE</button>
+        </div>
+      </div>
+
+      {/* Subtle Stars/Particles */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        {/* Simple star effect using CSS, can be replaced with canvas/particles.js for more realism */}
+        <div className="absolute top-1/4 left-1/3 w-1 h-1 bg-white/30 rounded-full animate-pulse" />
+        <div className="absolute top-2/3 left-2/4 w-1 h-1 bg-white/20 rounded-full animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-2/5 w-0.5 h-0.5 bg-white/40 rounded-full animate-pulse delay-500" />
+        <div className="absolute top-3/4 left-1/5 w-1 h-1 bg-white/10 rounded-full animate-pulse delay-700" />
+      </div>
+
+      {/* Down Arrow */}
+      <div className="absolute left-1/2 bottom-8 -translate-x-1/2 z-20">
+        <svg width="32" height="32" fill="none" stroke="white" strokeWidth="2"><path d="M16 8v16M8 20l8 8 8-8"/></svg>
+      </div>
+    </main>
   );
 }

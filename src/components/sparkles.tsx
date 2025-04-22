@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { SparklesCore } from "./ui/sparkles";
-import { PlaceholdersAndVanishInputDemo } from "./button";
+// import { PlaceholdersAndVanishInputDemo } from "./button";
 
 export function SparklesPreview() {
   return (

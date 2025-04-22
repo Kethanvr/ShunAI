@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { Spotlight } from "@/components/ui/spotlight-new";
+// import { Spotlight } from "@/components/ui/spotlight-new";
 // import { MeteorsDemo } from "./Cards";
-import { StickyScrollRevealDemo } from "./Roll";
-import { TextGenerateEffect } from "./ui/text-generate-effect";
+// import { StickyScrollRevealDemo } from "./Roll";
+// import { TextGenerateEffect } from "./ui/text-generate-effect";
 import { TextGenerateEffectDemo } from "./Text";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 import { PlaceholdersAndVanishInputDemo } from "./button";
 export function SpotlightNewDemo() {
   return (

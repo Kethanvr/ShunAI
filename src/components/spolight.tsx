@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { Spotlight } from "@/components/ui/Spotlight";
-import { PlaceholdersAndVanishInputDemo } from "./button";
+// import { Spotlight } from "@/components/ui/Spotlight";
+// import { PlaceholdersAndVanishInputDemo } from "./button";
 import { TextHoverEffectDemo } from "./TextRevel";
 
 export function SpotlightPreview() {

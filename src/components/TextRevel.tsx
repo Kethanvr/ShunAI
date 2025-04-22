@@ -2,13 +2,12 @@ import React from "react";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 
 export function TextHoverEffectDemo() {
-  return (<div>
+  return (
     <div className="h-[40rem] flex items-center justify-center">
-      <TextHoverEffect text="ACET" />
+      <TextHoverEffect text="Shūn.AI" />
     
       
     </div>
-    
-    </div>
+
   );
 }

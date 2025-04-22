@@ -3,13 +3,15 @@
 import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
 
 export function PlaceholdersAndVanishInputDemo() {
-  const placeholders = [
-    "What's the first rule of Fight Club?",
-    "Who is Tyler Durden?",
-    "Where is Andrew Laeddis Hiding?",
-    "Write a Javascript method to reverse a string",
-    "How to assemble your own PC?",
-  ];
+const placeholders = [
+  "What lies beyond the observable universe?",
+  "Can AI decode dark matter signals?",
+  "How does Shun.AI simulate cosmic phenomena?",
+  "Is the void truly empty or full of data?",
+  "What if intelligence was born from a black hole?",
+];
+
+;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);

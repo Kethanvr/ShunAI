@@ -14,6 +14,7 @@ export function SpotlightPreview() {
         )}
       />
 
+      <div className="h-20" />
       {/* <Spotlight
         className="-top-40 left-0 md:-top-20 md:left-60"
         fill="white"
@@ -22,11 +23,8 @@ export function SpotlightPreview() {
         {/* <h1 className="bg-opacity-50 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text text-center text-4xl font-bold text-transparent md:text-7xl"> */}
           <TextHoverEffectDemo />
         {/* </h1> */}
-       
-        <br />
-        <div>
-
-        </div>
+{/*        
+        <div className="h-20" /> */}
       </div>
     </div>
   );

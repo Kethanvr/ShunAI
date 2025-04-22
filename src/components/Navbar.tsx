@@ -12,7 +12,7 @@ import {
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
-import Homepage from "./Homepage";
+// import Homepage from "./Homepage";
 
 export function NavbarDemo() {
   const navItems = [
@@ -33,7 +33,7 @@ export function NavbarDemo() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="relative w-full">
+    <div className="fixed top-0 left-0 w-full z-50">
       <Navbar>
         {/* Desktop Navigation */}
         <NavBody>

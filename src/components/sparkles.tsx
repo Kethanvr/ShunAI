@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { SparklesCore } from "./ui/sparkles";
-// import { PlaceholdersAndVanishInputDemo } from "./button";
 
 export function SparklesPreview() {
   return (
@@ -10,7 +9,7 @@ export function SparklesPreview() {
       <h1 className="md:text-3xl text-3xl lg:text-8xl font-bold text-center text-white relative z-10">
       Revolutionizing the Future of Intelligence.
       </h1>
-      <div className="w-[40rem] h-40 relative">
+      <div className="w-[50rem] h-40 relative">
         {/* Gradients */}
         <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
         <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />

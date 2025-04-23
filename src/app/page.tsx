@@ -1,21 +1,14 @@
 // import Homepage from "@/components/Homepage";
-import { SpotlightNewDemo } from "@/components/newsplotlight";
-import { SparklesPreview } from "@/components/sparkles";
-import { SpotlightPreview } from "@/components/spolight";
-// import Image from "next/image";
+import About from "@/components/About";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 export default function Home() {
   return (
     <main>
-      <SpotlightPreview />
-      <div className="h-20" />
-
-      <SpotlightNewDemo />
-
-      <div className="h-20" />
-      <SparklesPreview />
-
-      
+      <Header />
+      <About />
+      <Footer />
     </main>
   );
 }

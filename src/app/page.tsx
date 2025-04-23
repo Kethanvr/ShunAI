@@ -6,15 +6,16 @@ import { SpotlightPreview } from "@/components/spolight";
 
 export default function Home() {
   return (
-   <main>
+    <main>
+      <SpotlightPreview />
+      <div className="h-20" />
 
-         <SpotlightPreview />
-         <SpotlightNewDemo />
-       <SparklesPreview /> 
-         
-  {/* <SpotlightPreview /> */}
-     
+      <SpotlightNewDemo />
 
-   </main>
+      <div className="h-20" />
+      <SparklesPreview />
+
+      
+    </main>
   );
 }

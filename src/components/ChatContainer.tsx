@@ -241,11 +241,10 @@ const ChatContainer = ({ className }: ChatContainerProps) => {
     }
   };
   return (
-    <div ref={chatContainerRef} className={cn("flex h-full w-full flex-col", className)}>
-      {/* Chat header */}
+    <div ref={chatContainerRef} className={cn("flex h-full w-full flex-col", className)}>      {/* Chat header */}
       <div className="flex items-center justify-between border-b border-white/10 bg-black/60 px-4 py-2 backdrop-blur-xl">
         <h1 className="text-xl font-bold flex items-center gap-2">
-          <span className="text-white">Chat</span>
+          <span className="text-white">Shūn.AI</span>
         </h1>
         <div className="flex items-center gap-3">
           {/* Chat controls */}
@@ -335,16 +334,15 @@ const ChatContainer = ({ className }: ChatContainerProps) => {
           </div>
         </div>
       )}
-      
-      {/* Welcome message and central content - Grok style */}
+        {/* Welcome message and central content - Grok style */}
       {messages.length <= 1 && (
         <div className="flex flex-col items-center justify-center flex-1 p-8">
-          <div className="text-4xl font-bold text-white mb-4">Good morning, User.</div>
-          <div className="text-xl text-white/70 mb-12">How can I help you today?</div>
+          <div className="text-4xl font-bold text-white mb-4">Welcome to Shūn.AI</div>
+          <div className="text-xl text-white/70 mb-12">Your universe of knowledge awaits...</div>
           
-          {/* Search input - Grok style */}
-          <div className="w-full max-w-lg mb-12">
-            <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-black/40 px-4 py-3">
+          {/* Search input - centered style */}
+          <div className="w-full max-w-2xl mb-12">
+            <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-black/40 px-4 py-3 focus-within:border-indigo-500/70 focus-within:ring-1 focus-within:ring-indigo-500/50 transition-all duration-300">
               <input
                 type="text"
                 placeholder="What do you want to know?"
@@ -368,28 +366,27 @@ const ChatContainer = ({ className }: ChatContainerProps) => {
               </button>
             </div>
           </div>
-          
-          {/* Feature buttons - Grok style */}
+            {/* Feature buttons - Space themed */}
           <div className="flex flex-wrap justify-center gap-4 w-full max-w-3xl">
-            <button className="flex items-center px-4 py-2 rounded-md border border-white/10 bg-black/20 hover:bg-black/40 text-white transition-all gap-2">
+            <button className="flex items-center px-4 py-2 rounded-md border border-indigo-500/30 bg-black/20 hover:bg-indigo-900/30 text-white transition-all gap-2 hover:border-indigo-500/50">
               <span className="text-lg">🖼️</span>
               Create Images
             </button>
-            <button className="flex items-center px-4 py-2 rounded-md border border-white/10 bg-black/20 hover:bg-black/40 text-white transition-all gap-2">
-              <span className="text-lg">🔍</span>
-              Research
+            <button className="flex items-center px-4 py-2 rounded-md border border-purple-500/30 bg-black/20 hover:bg-purple-900/30 text-white transition-all gap-2 hover:border-purple-500/50">
+              <span className="text-lg">🔭</span>
+              Explore Universe
             </button>
-            <button className="flex items-center px-4 py-2 rounded-md border border-white/10 bg-black/20 hover:bg-black/40 text-white transition-all gap-2">
-              <span className="text-lg">📰</span>
-              Latest News
+            <button className="flex items-center px-4 py-2 rounded-md border border-blue-500/30 bg-black/20 hover:bg-blue-900/30 text-white transition-all gap-2 hover:border-blue-500/50">
+              <span className="text-lg">📚</span>
+              Knowledge Base
             </button>
-            <button className="flex items-center px-4 py-2 rounded-md border border-white/10 bg-black/20 hover:bg-black/40 text-white transition-all gap-2">
-              <span className="text-lg">👤</span>
-              Personas
+            <button className="flex items-center px-4 py-2 rounded-md border border-indigo-500/30 bg-black/20 hover:bg-indigo-900/30 text-white transition-all gap-2 hover:border-indigo-500/50">
+              <span className="text-lg">🤖</span>
+              AI Tools
             </button>
-            <button className="flex items-center px-4 py-2 rounded-md border border-white/10 bg-black/20 hover:bg-black/40 text-white transition-all gap-2">
-              <span className="text-lg">🧠</span>
-              Workspaces
+            <button className="flex items-center px-4 py-2 rounded-md border border-purple-500/30 bg-black/20 hover:bg-purple-900/30 text-white transition-all gap-2 hover:border-purple-500/50">
+              <span className="text-lg">🌟</span>
+              Discover
             </button>
           </div>
         </div>
@@ -418,15 +415,13 @@ const ChatContainer = ({ className }: ChatContainerProps) => {
             )}
           </div>
         </ScrollArea>
-      )}
-
-      {/* Chat input - Only show when in conversation */}
+      )}      {/* Chat input - Only show when in conversation */}
       {messages.length > 1 && (
         <form 
           onSubmit={handleSubmit}
           className="border-t border-white/10 bg-black/60 p-3 backdrop-blur-xl"
         >
-          <div className="relative flex items-end rounded-xl border border-indigo-500/30 bg-black/40 focus-within:border-indigo-500/70 focus-within:ring-1 focus-within:ring-indigo-500/50 transition-all duration-300">
+          <div className="max-w-3xl mx-auto relative flex items-end rounded-xl border border-indigo-500/30 bg-black/40 focus-within:border-indigo-500/70 focus-within:ring-1 focus-within:ring-indigo-500/50 transition-all duration-300">
             {/* Command menu */}
             <CommandMenu 
               isOpen={showCommandMenu}
@@ -478,13 +473,12 @@ const ChatContainer = ({ className }: ChatContainerProps) => {
               <IconSend size={18} className="text-white" />
             </button>
           </div>
-          
-          {/* Keyboard shortcuts info */}
-          <div className="mt-2 text-xs text-white/50 text-center flex flex-wrap items-center justify-center gap-2">
-            <p>Press <kbd className="px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Enter</kbd> to send, <kbd className="px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Shift + Enter</kbd> for new line</p>
-            <span className="mx-2">•</span>
-            <p>Type <kbd className="px-1.5 py-0.5 rounded bg-black/50 border border-white/10">/</kbd> for commands</p>
-          </div>
+              {/* Keyboard shortcuts info */}
+        <div className="max-w-3xl mx-auto mt-2 text-xs text-white/50 text-center flex flex-wrap items-center justify-center gap-2">
+          <p>Press <kbd className="px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Enter</kbd> to send, <kbd className="px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Shift + Enter</kbd> for new line</p>
+          <span className="mx-2">•</span>
+          <p>Type <kbd className="px-1.5 py-0.5 rounded bg-black/50 border border-white/10">/</kbd> for commands</p>
+        </div>
         </form>
       )}
     </div>

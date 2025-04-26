@@ -1,10 +1,15 @@
+"use client";
+
 import Chatpage from "@/components/Chatpage";
-import React from "react";
+import ParticleBackground from "@/components/ParticleBackground";
 
 const AskPage = () => {
   return (
-    <div className="relative flex h-[100dvh] w-full overflow-hidden rounded-md bg-black/[0.96] antialiased md:items-center md:justify-center">
-      <Chatpage />
+    <div className="relative flex h-[100dvh] w-full overflow-hidden bg-black antialiased">
+      <ParticleBackground />
+      <div className="w-full h-full z-5">
+        <Chatpage />
+      </div>
     </div>
   );
 };

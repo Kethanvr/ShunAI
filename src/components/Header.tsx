@@ -10,7 +10,9 @@ const Header = () => {
         <TextHoverEffect text="Shūn.AI" />
 
     <div className="absolute inset-x-0 flex justify-center" style={{ top: '85%' }}>
-          <NavbarButton variant="primary">~</NavbarButton>
+          <a href="/chat">
+            <NavbarButton variant="primary">~</NavbarButton>
+          </a>
     </div>
     </div>
   );

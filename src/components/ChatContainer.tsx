@@ -279,7 +279,7 @@ const ChatContainer = ({ className }: ChatContainerProps) => {
               {isFullScreen ? <IconMinimize size={16} /> : <IconMaximize size={16} />}
             </button>
           </div>
-            <button 
+          <button 
             onClick={() => {
               setMessages([{ role: "assistant", content: "Hi! I'm your AI assistant. How can I help you today?" }]);
               setShowSuggestions(true);
@@ -335,96 +335,158 @@ const ChatContainer = ({ className }: ChatContainerProps) => {
           </div>
         </div>
       )}
-        {/* Chat messages */}
-      <ScrollArea className="flex-1 w-full px-2 py-4 md:px-4">
-        <div ref={scrollAreaRef} className="flex flex-col gap-6 pb-4 w-full h-full">
-          {messages.map((message, index) => (
-            <ChatMessage key={index} message={message} />
-          ))}
-          {isLoading && (
-            <ChatMessage
-              message={{ role: "assistant", content: "" }}
-              isLoading={true}
-            />
-          )}
+      
+      {/* Welcome message and central content - Grok style */}
+      {messages.length <= 1 && (
+        <div className="flex flex-col items-center justify-center flex-1 p-8">
+          <div className="text-4xl font-bold text-white mb-4">Good morning, User.</div>
+          <div className="text-xl text-white/70 mb-12">How can I help you today?</div>
           
-          {/* Prompt suggestions */}
-          {showSuggestions && messages.length <= 3 && (
-            <div className="flex flex-col gap-3 my-6">
-              <p className="text-white/60 text-center text-sm">Try asking me about:</p>
-              <PromptSuggestions onSelectPrompt={handleSelectPrompt} />
+          {/* Search input - Grok style */}
+          <div className="w-full max-w-lg mb-12">
+            <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-black/40 px-4 py-3">
+              <input
+                type="text"
+                placeholder="What do you want to know?"
+                className="w-full bg-transparent text-white placeholder-white/60 focus:outline-none"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey && input.trim()) {
+                    handleSubmit(e);
+                  }
+                }}
+              />
+              <button
+                onClick={(e) => {
+                  if (input.trim()) handleSubmit(e as any);
+                }}
+                className="text-white/70 hover:text-white transition-colors"
+                disabled={!input.trim() || isLoading}
+              >
+                <IconSend size={18} />
+              </button>
             </div>
-          )}
+          </div>
+          
+          {/* Feature buttons - Grok style */}
+          <div className="flex flex-wrap justify-center gap-4 w-full max-w-3xl">
+            <button className="flex items-center px-4 py-2 rounded-md border border-white/10 bg-black/20 hover:bg-black/40 text-white transition-all gap-2">
+              <span className="text-lg">🖼️</span>
+              Create Images
+            </button>
+            <button className="flex items-center px-4 py-2 rounded-md border border-white/10 bg-black/20 hover:bg-black/40 text-white transition-all gap-2">
+              <span className="text-lg">🔍</span>
+              Research
+            </button>
+            <button className="flex items-center px-4 py-2 rounded-md border border-white/10 bg-black/20 hover:bg-black/40 text-white transition-all gap-2">
+              <span className="text-lg">📰</span>
+              Latest News
+            </button>
+            <button className="flex items-center px-4 py-2 rounded-md border border-white/10 bg-black/20 hover:bg-black/40 text-white transition-all gap-2">
+              <span className="text-lg">👤</span>
+              Personas
+            </button>
+            <button className="flex items-center px-4 py-2 rounded-md border border-white/10 bg-black/20 hover:bg-black/40 text-white transition-all gap-2">
+              <span className="text-lg">🧠</span>
+              Workspaces
+            </button>
+          </div>
         </div>
-      </ScrollArea>
-        {/* Chat input */}
-      <form 
-        onSubmit={handleSubmit}
-        className="border-t border-white/10 bg-black/60 p-3 backdrop-blur-xl"
-      >
-        <div className="relative flex items-end rounded-xl border border-indigo-500/30 bg-black/40 focus-within:border-indigo-500/70 focus-within:ring-1 focus-within:ring-indigo-500/50 transition-all duration-300">
-          {/* Command menu */}
-          <CommandMenu 
-            isOpen={showCommandMenu}
-            commands={commands}
-            onSelectCommand={handleSelectCommand}
-          />
-          
-          {/* Animated border */}
-          <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
-            <div className="opacity-0 focus-within:opacity-100 transition-opacity duration-300">
-              <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite] bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent"></div>
-            </div>
-          </div>
-          
-          {/* Input area */}
-          <div className="flex items-center pl-3 text-white/50">
-            <IconMessage size={16} />
-          </div>
-            <textarea
-            ref={inputRef}
-            className="max-h-36 w-full resize-none bg-transparent px-2 py-3.5 text-white placeholder-gray-400 focus:outline-none"
-            placeholder="Message..."
-            rows={1}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                handleSubmit(e);
-              }
-            }}
-          />
-          
-          {/* Voice input button */}
-          <button
-            type="button"
-            onClick={toggleVoiceInput}
-            className="flex-shrink-0 flex h-10 w-10 items-center justify-center text-white/70 hover:text-white/90 transition-colors"
-          >
-            <IconMicrophone size={18} />
-          </button>
-          
-          {/* Send button */}
-          <button
-            type="submit"
-            className={cn(
-              "mr-2 mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/20",
-              (!input.trim() || isLoading) && "opacity-50 cursor-not-allowed"
+      )}
+
+      {/* Chat messages */}
+      {messages.length > 1 && (
+        <ScrollArea className="flex-1 w-full px-2 py-4 md:px-4">
+          <div ref={scrollAreaRef} className="flex flex-col gap-6 pb-4 w-full h-full">
+            {messages.map((message, index) => (
+              <ChatMessage key={index} message={message} />
+            ))}
+            {isLoading && (
+              <ChatMessage
+                message={{ role: "assistant", content: "" }}
+                isLoading={true}
+              />
             )}
-            disabled={!input.trim() || isLoading}
-          >
-            <IconSend size={18} className="text-white" />
-          </button>
-        </div>
-        
-        {/* Keyboard shortcuts info */}
-        <div className="mt-2 text-xs text-white/50 text-center flex flex-wrap items-center justify-center gap-2">
-          <p>Press <kbd className="px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Enter</kbd> to send, <kbd className="px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Shift + Enter</kbd> for new line</p>
-          <span className="mx-2">•</span>
-          <p>Type <kbd className="px-1.5 py-0.5 rounded bg-black/50 border border-white/10">/</kbd> for commands</p>
-        </div>
-      </form>
+            
+            {/* Prompt suggestions */}
+            {showSuggestions && messages.length <= 3 && (
+              <div className="flex flex-col gap-3 my-6">
+                <p className="text-white/60 text-center text-sm">Try asking me about:</p>
+                <PromptSuggestions onSelectPrompt={handleSelectPrompt} />
+              </div>
+            )}
+          </div>
+        </ScrollArea>
+      )}
+
+      {/* Chat input - Only show when in conversation */}
+      {messages.length > 1 && (
+        <form 
+          onSubmit={handleSubmit}
+          className="border-t border-white/10 bg-black/60 p-3 backdrop-blur-xl"
+        >
+          <div className="relative flex items-end rounded-xl border border-indigo-500/30 bg-black/40 focus-within:border-indigo-500/70 focus-within:ring-1 focus-within:ring-indigo-500/50 transition-all duration-300">
+            {/* Command menu */}
+            <CommandMenu 
+              isOpen={showCommandMenu}
+              commands={commands}
+              onSelectCommand={handleSelectCommand}
+            />
+            
+            {/* Animated border */}
+            <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+              <div className="opacity-0 focus-within:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite] bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent"></div>
+              </div>
+            </div>
+            
+            {/* Input area */}
+            <textarea
+              ref={inputRef}
+              className="max-h-36 w-full resize-none bg-transparent px-4 py-3.5 text-white placeholder-gray-400 focus:outline-none"
+              placeholder="What do you want to know?"
+              rows={1}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault();
+                  handleSubmit(e);
+                }
+              }}
+            />
+            
+            {/* Voice input button */}
+            <button
+              type="button"
+              onClick={toggleVoiceInput}
+              className="flex-shrink-0 flex h-10 w-10 items-center justify-center text-white/70 hover:text-white/90 transition-colors"
+            >
+              <IconMicrophone size={18} />
+            </button>
+            
+            {/* Send button */}
+            <button
+              type="submit"
+              className={cn(
+                "mr-2 mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/20",
+                (!input.trim() || isLoading) && "opacity-50 cursor-not-allowed"
+              )}
+              disabled={!input.trim() || isLoading}
+            >
+              <IconSend size={18} className="text-white" />
+            </button>
+          </div>
+          
+          {/* Keyboard shortcuts info */}
+          <div className="mt-2 text-xs text-white/50 text-center flex flex-wrap items-center justify-center gap-2">
+            <p>Press <kbd className="px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Enter</kbd> to send, <kbd className="px-1.5 py-0.5 rounded bg-black/50 border border-white/10">Shift + Enter</kbd> for new line</p>
+            <span className="mx-2">•</span>
+            <p>Type <kbd className="px-1.5 py-0.5 rounded bg-black/50 border border-white/10">/</kbd> for commands</p>
+          </div>
+        </form>
+      )}
     </div>
   );
 };

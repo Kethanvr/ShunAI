@@ -2,25 +2,38 @@
 
 import React from 'react';
 import ChatContainer from './ChatContainer';
+import { FloatingActionButton } from './FloatingActionButton';
+import { AccessibilityPanel } from './AccessibilityPanel';
+import { KeyboardShortcutsPanel } from './KeyboardShortcutsPanel';
 import { cn } from '@/lib/utils';
 
-export const Chatpage = () => {
-  return (
-    <div className="flex h-full w-full flex-col">
-      <div className="w-full max-w-4xl mx-auto flex flex-col h-full">
+const Chatpage = () => {  return (
+    <div className="flex h-[100dvh] w-full flex-col p-0">
+      <div className="h-full w-full max-w-6xl mx-auto flex flex-col">
         <div className={cn(
           "relative flex h-full w-full overflow-hidden rounded-lg border border-white/10",
-          "bg-gradient-to-b from-black/80 to-black/60 backdrop-blur-sm"
+          "bg-transparent backdrop-blur-sm shadow-2xl"
         )}>
           {/* Ambient light effect */}
-          <div className="absolute -top-40 -left-40 h-80 w-80 rounded-full bg-indigo-500/20 blur-3xl" />
-          <div className="absolute -bottom-40 -right-40 h-80 w-80 rounded-full bg-purple-500/20 blur-3xl" />
+          <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-indigo-600/20 blur-3xl opacity-50" />
+          <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-purple-600/20 blur-3xl opacity-50" />
+          <div className="absolute top-1/3 left-1/2 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl opacity-40" />
           
           {/* Main chat container */}
-          <ChatContainer />
+          <ChatContainer className="w-full h-full" />
         </div>
       </div>
+      
+      {/* Floating action button */}
+      <FloatingActionButton />
+      
+      {/* Accessibility panel */}
+      <AccessibilityPanel />
+      
+      {/* Keyboard shortcuts panel */}      <KeyboardShortcutsPanel />
     </div>
   );
 };
+
+export default Chatpage;
 

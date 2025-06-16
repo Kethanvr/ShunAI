@@ -1,23 +1,4 @@
 "use client";
-declare module "react-syntax-highlighter" {
-  import * as React from "react";
-  export interface SyntaxHighlighterProps {
-    language?: string;
-    style?: any;
-    customStyle?: React.CSSProperties;
-    showLineNumbers?: boolean;
-    wrapLines?: boolean;
-    lineNumberStyle?: React.CSSProperties;
-    children?: string;
-  }
-  export class Prism extends React.Component<SyntaxHighlighterProps> {}
-}
-
-declare module "react-syntax-highlighter/dist/esm/styles/prism" {
-  export const atomDark: any;
-}
-
-
 
 import React, { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -63,9 +44,10 @@ const languageMap: Record<string, string> = {
 
 export function CodeBlock({ language, code }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
-  
+
   const normalizedLanguage = languageMap[language.toLowerCase()] || language;
-  const displayLanguage = normalizedLanguage === "text" ? "plain text" : normalizedLanguage;
+  const displayLanguage =
+    normalizedLanguage === "text" ? "plain text" : normalizedLanguage;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(code);
@@ -98,36 +80,48 @@ export function CodeBlock({ language, code }: CodeBlockProps) {
       <div className="flex items-center justify-between border-b border-white/10 bg-white/5 px-4 py-2">
         <div className="flex items-center gap-2">
           <Terminal size={14} className="text-indigo-400" />
-          <span className="text-xs font-medium text-white/70">{displayLanguage}</span>
+          <span className="text-xs font-medium text-white/70">
+            {displayLanguage}
+          </span>
         </div>
         <div className="flex items-center space-x-2">
-          <button 
+          <button
             onClick={handleCopy}
             className="group flex h-6 w-6 items-center justify-center rounded-md hover:bg-white/10 transition-colors"
             title="Copy code"
           >
-            {copied ? 
-              <Check size={14} className="text-green-400" /> : 
-              <Copy size={14} className="text-white/60 group-hover:text-white/90" />
-            }
+            {copied ? (
+              <Check size={14} className="text-green-400" />
+            ) : (
+              <Copy
+                size={14}
+                className="text-white/60 group-hover:text-white/90"
+              />
+            )}
           </button>
-          <button 
+          <button
             onClick={handleDownload}
             className="group flex h-6 w-6 items-center justify-center rounded-md hover:bg-white/10 transition-colors"
             title="Download code"
           >
-            <Download size={14} className="text-white/60 group-hover:text-white/90" />
+            <Download
+              size={14}
+              className="text-white/60 group-hover:text-white/90"
+            />
           </button>
-          {(normalizedLanguage === "javascript" || 
-            normalizedLanguage === "typescript" || 
-            normalizedLanguage === "python" || 
+          {(normalizedLanguage === "javascript" ||
+            normalizedLanguage === "typescript" ||
+            normalizedLanguage === "python" ||
             normalizedLanguage === "bash") && (
-            <button 
+            <button
               onClick={handleRunInTerminal}
               className="group flex h-6 w-6 items-center justify-center rounded-md hover:bg-white/10 transition-colors"
               title="Run in terminal"
             >
-              <Terminal size={14} className="text-white/60 group-hover:text-white/90" />
+              <Terminal
+                size={14}
+                className="text-white/60 group-hover:text-white/90"
+              />
             </button>
           )}
           <div className="flex items-center space-x-1 ml-2">
@@ -137,26 +131,26 @@ export function CodeBlock({ language, code }: CodeBlockProps) {
           </div>
         </div>
       </div>
-      
+
       {/* Code content with syntax highlighting */}
       <div className="overflow-x-auto">
         <SyntaxHighlighter
           language={normalizedLanguage}
           style={atomDark}
           customStyle={{
-            margin: 0, 
-            padding: '1rem',
-            background: 'transparent',
-            fontSize: '0.875rem',
-            lineHeight: '1.5',
+            margin: 0,
+            padding: "1rem",
+            background: "transparent",
+            fontSize: "0.875rem",
+            lineHeight: "1.5",
           }}
           showLineNumbers={true}
           wrapLines={true}
           lineNumberStyle={{
-            color: 'rgba(255, 255, 255, 0.2)',
-            paddingRight: '1rem',
-            textAlign: 'right',
-            minWidth: '2.5rem',
+            color: "rgba(255, 255, 255, 0.2)",
+            paddingRight: "1rem",
+            textAlign: "right",
+            minWidth: "2.5rem",
           }}
         >
           {code}

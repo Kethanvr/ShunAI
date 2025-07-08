@@ -10,4 +10,4 @@ ya
 ```
 
 Open [ and load [Geist]( and API.
-- [Learn Next.js](https://nextjs.org/learn) - an  documentation](nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Learn Next.js](https://nextjs.org/learn) - an  documentation](nextjs.org/docs/a

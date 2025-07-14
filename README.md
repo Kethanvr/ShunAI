@@ -10,4 +10,4 @@ ya
 ```
 
 Open [ and load [Geist]( and API.
-- [Learn ](://nextjs.org/learn) - an  documentation](nextjs.org/docs/a
+- [Learn ](://nextjs.org/learn) - an  ](nextjs.org/docs/a

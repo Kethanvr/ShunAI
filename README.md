@@ -8,4 +8,4 @@ ya
 ```
 
 Open [ and load [Geist]( and API.
-- [Learn ](://nextjs.org/l
+- [Learn ](://nextj

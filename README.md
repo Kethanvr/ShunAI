@@ -1,5 +1,5 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/cr
-First, run the developm
+First, run the 
 npm run dev
 # or
 ya

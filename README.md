@@ -1,4 +1,4 @@
-This (https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cl
+This (https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-refe
 First, run the 
 npm run 
 # or

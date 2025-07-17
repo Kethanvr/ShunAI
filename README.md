@@ -1,6 +1,6 @@
 This (https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-refe
 First, run the 
-npm run 
+npm r
 # or
 ya
 ```

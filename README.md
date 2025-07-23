@@ -5,5 +5,5 @@ npm r
 ya
 ```
 
-Open [ and load [Geist]( and API.
+Open [ and load [Geid API.
 - [Lea

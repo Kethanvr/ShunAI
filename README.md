@@ -6,4 +6,4 @@ ya
 ```
 
 Open [ and load [Geid API.
-- [Lea
+-

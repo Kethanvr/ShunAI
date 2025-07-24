@@ -1,4 +1,4 @@
- [`create-next-app`](/docs/app/api-refe
+ [`create-nexocs/app/api-refe
 First, run the 
 npm r
 # or

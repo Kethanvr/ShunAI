@@ -4,5 +4,4 @@ npm r
 ya
 ```
 
-Open [ and load [Geid API.
--
+Open [ and load [G

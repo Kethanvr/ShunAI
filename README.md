@@ -1,7 +1,4 @@
  [`create-nexocs/app/api-refe
 First, run the 
-npm r
-ya
-```
-
+npm 
 Open [ and load [G

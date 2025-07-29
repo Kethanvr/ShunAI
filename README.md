@@ -1,4 +1,4 @@
-djeiriijdjddjhejdjejjd [`create-nexocs/app/api-refe
+djeiriijdjddjhejdjejjd [`create-nexocs/app/api
 First, run th
 npm 
 Open
